@@ -80,3 +80,30 @@ if st.button('Predict'):
     prediction = model.predict(features)
     result = 'CKD' if prediction[0] == 1 else 'Not CKD'
     st.write(f'Prediction: {result}')
+    
+    if result == 'Not CKD':
+        st.write("**Prevention Plan:**")
+        if age > 60:
+            st.write("- **Regular Check-Ups:** Schedule annual check-ups with your doctor.")
+            st.write("- **Monitor Kidney Function:** Get your kidney function tested regularly.")
+        if bp > 140:
+            st.write("- **Manage Blood Pressure:** Implement lifestyle changes and/or medication to control blood pressure.")
+        if bgr > 140:
+            st.write("- **Control Blood Glucose:** If your blood glucose level is high, manage it with diet, exercise, or medication.")
+        if convert_binary(htn) == 1:
+            st.write("- **Control Hypertension:** Follow your doctor's advice for managing hypertension.")
+        if convert_binary(dm) == 1:
+            st.write("- **Manage Diabetes:** Follow your diabetes management plan.")
+        if convert_binary(cad) == 1:
+            st.write("- **Heart Health:** Consult with your cardiologist and follow recommendations to manage coronary artery disease.")
+        if convert_binary(pe) == 1:
+            st.write("- **Monitor Edema:** Report any swelling to your doctor.")
+        if convert_binary(ane) == 1:
+            st.write("- **Address Anemia:** Follow your doctor's advice for managing anemia.")
+        
+        st.write("**General Recommendations:**")
+        st.write("- **Healthy Diet:** Maintain a balanced diet rich in fruits, vegetables, and whole grains.")
+        st.write("- **Stay Hydrated:** Drink plenty of water daily.")
+        st.write("- **Regular Exercise:** Engage in regular physical activity to stay fit.")
+        st.write("- **Avoid Smoking and Excess Alcohol:** These habits can exacerbate kidney problems.")
+
